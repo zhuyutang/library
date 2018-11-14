@@ -1,0 +1,13 @@
+/* pages/book_detail/detail.wxss */
+page{padding:15px;box-sizing:border-box;}
+
+.book_base{overflow:hidden;}
+.book_base image{width:100px;height:120px;float:left; margin-right: 10px;}
+.book_base .book_base_right{padding:10px;}
+.book_base .book_base_right .title{font-weight:bolder;font-size:16px;}
+.book_base .book_base_right .author{}
+.book_base .book_base_right .count{}
+
+.book_summary{margin-top: 15px;}
+.book_summary .title{font-size: 16px;}
+.book_summary .content{text-indent: 2em;}

@@ -1,0 +1,4 @@
+/**app.wxss**/
+@import 'assets/weui.wxss';
+page{font-size:14px;}
+

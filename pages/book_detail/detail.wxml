@@ -1,0 +1,16 @@
+<!--pages/book_detail/detail.wxml-->
+<view class="book_base">
+  <image src="{{bookInfo.images_medium}}"></image>
+  <view class="book_base_right">
+    <view class="title">{{bookInfo.title}}</view>
+    <view class="author">{{bookInfo.author}}</view>
+    <view class="count">{{bookInfo.count}} 本</view>
+  </view>
+</view>
+
+<view class="book_summary">
+  <view class='title'> 简介：</view>
+  <view class="content">   
+  {{bookInfo.summary}}
+  </view>
+</view>

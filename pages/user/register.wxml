@@ -1,0 +1,30 @@
+<view>
+		<form class="register weui-cells weui-cells_form" bindsubmit="submitRegister">
+
+      <!-- 用户昵称、头像 -->
+      <view class="wx_user">
+        <open-data class="photo" type="userAvatarUrl"></open-data>
+        <open-data class="name" type="userNickName"></open-data>
+			</view>
+
+      <view class="weui-cell">
+				<view class="weui-cell__hd">
+					<label for="" class="weui-label">真实姓名：</label>
+				</view>
+				<view class="weui-cell__bd">
+					<input type="text" name="realname" class="weui-input" value="{{userInfo.realname}}" />
+				</view>
+			</view>
+      <view class="weui-cell">
+				<view class="weui-cell__hd">
+					<label for="" class="weui-label">手机号码：</label>
+				</view>
+				<view class="weui-cell__bd">
+					<input type="text" name="phone" class="weui-input" value="{{userInfo.phone}}" />
+				</view>
+			</view>
+      <view class="btn_wrap">
+				<button form-type="submit" type="primary">确认</button>
+			</view>
+    </form>
+</view>

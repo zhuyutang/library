@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/admin/add",
+    "pages/index/index",
+    "pages/book_detail/detail",
+    "pages/logs/logs",
+    "pages/user/user",
+    "pages/user/register"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#00b4fd",
+    "navigationBarTitleText": "天香书苑",
+    "navigationBarTextStyle": "white",
+    "onReachBottomDistance": 10
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#00b4fd",
+    "backgroundColor": "#eee",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "assets/icon/book.png",
+        "selectedIconPath": "assets/icon/book_on.png",
+        "text": "书籍"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "assets/icon/user.png",
+        "selectedIconPath": "assets/icon/user_on.png",
+        "text": "我"
+      }
+    ]
+  }
+}

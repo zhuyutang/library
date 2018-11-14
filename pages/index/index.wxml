@@ -1,0 +1,30 @@
+<!--index.wxml-->
+<!-- 搜索 -->
+<view class="search">
+  <form>
+    <input placeholder="书名\\作者" bindconfirm="findBook" bindinput='bind_keyword'></input>
+    <image class="scan" src="{{iconUrl}}scan.png"></image>
+    <image class="find" src="{{iconUrl}}find.png" catchtap='findBook'></image>
+  </form>
+</view>
+
+<!-- 书籍分类 -->
+<view class="typeList">
+  <view class="title">分类：{{chooseType.name}}  <image src="{{iconUrl}}type.png"></image> </view>
+  <view class="typeWrap">
+    <view class="typeItem {{chooseType.id == ''?'on':''}}" data-id="" data-name="全部" catchtap='chooseType'>全部</view>
+    <view wx:for="{{typeList}}" class="typeItem {{chooseType.id == item.id?'on':''}}" catchtap='chooseType' data-id="{{item.id}}" data-name="{{item.name}}">{{item.name}}</view>
+  </view>
+</view>
+
+<!-- 书籍列表 -->
+<view class="bookList">
+  <view wx:for="{{bookList.data}}" class="bookItem" data-id="{{item.id}}" catchtap='book_detail'>
+      <image src="{{item.images_medium?item.images_medium:iconUrl+'default_img.png'}}"></image>
+      <view class="title">{{item.title}}</view>
+      <view class="author">{{item.author}}</view>
+    </view>
+    <view wx:if="{{!bookList.ismore}}" class="end">------------共{{bookList.data.length}}本------------</view>
+</view>
+
+

@@ -1,0 +1,21 @@
+/**index.wxss**/
+page{}
+.search{padding: 5px 40px;position:relative;}
+.search input{border: 1px solid #eee; border-radius: 5px; padding: 5px;}
+.search image.scan{ width: 30px; height: 30px;position:absolute; top: 5px; right:5px}
+.search image.find{ width: 30px; height: 30px;position:absolute; top: 50%; right:45px; margin-top: -15px;}
+
+.typeList{background: #eee; padding: 15px;}
+.typeList .title{overflow: hidden;}
+.typeList .title image{width: 1.5em;height:1.5em; float: right;}
+.typeList .typeWrap{overflow: hidden;margin-top:10px;}
+.typeList .typeWrap .typeItem{float: left; padding: 2px 7px; border-radius: 5px; font-size: 0.9em;}
+.typeList .typeWrap .typeItem.on{background:#00b4fd; color:#fff;}
+
+.bookList{display: flex; display: -webkit-flex; flex-wrap: wrap;}
+.bookList .bookItem{flex-grow: 1; width: 33.3%; padding: 5px; box-sizing: border-box;margin-bottom: 15px;}
+.bookList .bookItem image{width: 90px; height:100px;}
+.bookList .bookItem .title{font-size: .9em; max-height: 4.5em; overflow: hidden; }
+.bookList .bookItem .author{font-size: .8em; color:#999; max-height: 3em; overflow: hidden;}
+
+.end{width:100%;text-align:center;font-size:.8em;color:#999;margin-bottom:15px;}

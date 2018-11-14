@@ -1,0 +1,5 @@
+page{padding:0px 15px; box-sizing: border-box;}
+.wx_user{padding: 20px; text-align: center; margin-bottom: 20px;}
+.wx_user .photo{width: 80px; height: 80px; border-radius: 50%; overflow: hidden; display: block; margin: 0 auto;}
+.wx_user .name{color:#999;}
+.btn_wrap{margin-top: 20px;}

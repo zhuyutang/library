@@ -1,0 +1,138 @@
+	<!-- 左侧菜单选项 -->
+	<scroll-view scroll-y class="left_menu">
+		<view class="{{menu_cur == 1?'on':''}}" data-type="1" bindtap="changeMenu">添加</view>
+		<view class="{{menu_cur == 2?'on':''}}" data-type="2"  bindtap="changeMenu">修改</view>
+		<view class="{{menu_cur == 3?'on':''}}" data-type="3" bindtap="changeMenu">分类</view>
+	</scroll-view>
+
+	
+	<view class="main">
+		<!-- 添加新书 -->
+		<form class="addNew weui-cells weui-cells_form" wx:if="{{menu_cur == 1}}" bindsubmit="submitBook">
+			<view class="weui-cell weui-cell_vcode">
+				<view class="weui-cell__hd">
+					<label for="" class="weui-label">书名：</label>
+				</view>
+				<view class="weui-cell__bd">
+					<input type="text" name="title" class="weui-input" value="{{bookInfo.title}}" />
+				</view>
+				<view class="weui-cell__ft" catchtap='openscan'>
+					<image class="scan weui-cell__ft" src="{{iconUrl}}scan.png"></image>
+				</view>
+			</view>
+			<view class="weui-cell">
+				<view class="weui-cell__hd">
+					<label for="" class="weui-label">作者：</label>
+				</view>
+				<view class="weui-cell__bd">
+					<input type="text" name="author" class="weui-input" value="{{bookInfo.author}}" />
+				</view>
+			</view>
+      <view class="weui-cell">
+				<view class="weui-cell__hd">
+					<label for="" class="weui-label">分类：</label>
+				</view>
+				<view class="weui-cell__bd">
+          <picker class="weui-input" range="{{typeList}}" value="{{book_type}}" range-key='name'  bindchange="choose_type">
+            <view >{{typeList[book_type].name}}</view>
+          </picker>
+				</view>
+			</view>
+      		<view class="weui-cell">
+				<view class="weui-cell__hd">
+					<label for="" class="weui-label">数量：</label>
+				</view>
+				<view class="weui-cell__bd">
+					<input type="text" name="count" class="weui-input" type="number" value="{{bookInfo.number?bookInfo.number:1}}" />
+				</view>
+			</view>
+			<view class="weui-cell">
+				<view class="weui-cell__hd">
+					<label for="" class="weui-label">编号：</label>
+				</view>
+				<view class="weui-cell__bd">
+					<input type="text" name="count" class="weui-input" type="ecode" value="{{bookInfo.ecode?bookInfo.ecode:''}}" />
+				</view>
+			</view>
+      
+			<view class="weui-cell">
+				<view class="weui-cell__hd">
+					<label for="" class="weui-label">简介：</label>
+				</view>
+				<view class="weui-cell__bd">
+					<textarea class="weui-textarea" name="summary" maxlength="-1"  auto-height="true" value="{{bookInfo.summary}}"></textarea> 
+				</view>
+			</view>
+      <view class="weui-cell">
+				<view class="weui-cell__hd">
+					<label for="" class="weui-label">封面：</label>
+				</view>
+				<view class="weui-cell__bd" catchtap='chooseImage'>
+					<image class="add_img"  src="{{temp_img}}" ></image>
+				</view>
+			</view>
+			<view class="btn_wrap">
+				<button form-type="submit" type="primary">添加</button>
+			</view>
+		</form>
+
+    <!-- 修改书籍信息 -->
+    <view class="updateInfo"  wx:if="{{menu_cur == 2}}">
+        <form class="search" >
+          <input placeholder='书名\\作者'  bindconfirm="findBook" bindinput='bind_keyword'></input>
+          <button catchtap='findBook' type="primary">查询</button>
+
+          <!--书籍分类 -->
+          <view class="typeWrap">
+            <view data-id='' catchtap='chooseType' class="item {{chooseType == ''?'on':''}}">全部</view>
+            <view wx:for="{{typeList}}" class="item {{chooseType == item.id?'on':''}}" data-id="{{item.id}}" catchtap='chooseType'>{{item.name}}</view>
+          </view>
+          
+        </form>
+      <!-- 书籍列表 -->
+      <view class="bookList">
+        <view class="listItem hd ">
+          <view>封面</view>
+          <view>书名</view>
+          <view>作者</view>
+          <view>分类</view>
+          <view>编号</view>
+          <view>详情</view>
+        </view>
+        <view wx:for="{{bookList.data}}" class="listItem bd" data-id="{{item.id}}" data-index="{{index}}" catchtap='updateBook'>
+          <view class="img"><image mode="widthFix" src='{{item.images_medium}}' ></image></view>
+          <view class="title">{{item.title}}</view>
+          <view class="author">{{item.author}}</view>
+          <view class="author">{{item.type}}</view>
+          <view class="author">{{item.author}}</view>
+          <view class="author">{{item.summary?'有':'无'}}</view>
+        </view>
+          <view wx:if="{{!bookList.ismore}}" class="end">------------共{{bookList.data.length}}本------------</view>
+      </view>
+    </view>
+
+
+
+		<!-- 编辑分类 -->
+		<view class="editType" wx:if="{{menu_cur == 3}}">
+			<view class="title" wx:if="{{typeList.length>0}}">已有分类：</view>
+			<view class="title" wx:if="{{typeList.length<=0}}" class="t_center">尚无分类</view>
+
+			<view class="typeList">
+				<view wx:for="{{typeList}}" data-id="{{item.id}}" data-name="{{item.name}}"  catchlongpress="deteleType">{{item.name}}</view>
+			</view>
+
+			<button bindtap="showFormBox" type="primary" class="" style="margin-top: 20px;">添加分类</button>
+
+			<view class="formBox" wx:if="{{isShowFormBox}}" bindtap="showFormBox">
+				<view class="formBox_cont" catchtap="stopBubbl">
+					<view class="title">分类名称</view>
+					<form bindsubmit="addType">
+						<input type="" name="name" />
+
+						<button form-type="submit" type="primary">确定</button>
+					</form>
+				</view>
+			</view>
+		</view>
+	</view>

@@ -1,0 +1,54 @@
+page{height:100%;}
+
+.left_menu{float: left;background: #eee; width: auto; height:100%; position: fixed; top:0px; left:0px;}
+.left_menu view{padding: 10px 0.5em; text-align: center;color:#999;}
+.left_menu view.on{background: #fff; color:#000;}
+
+.main{padding-left:3em;}
+
+/* 添加书籍信息 */
+.addNew{}
+.addNew view{}
+.addNew view label{}
+.addNew view input{}
+.addNew view .scan{width: 1.8em; height: 1.8em;}
+.addNew .btn_wrap{padding: 15px;}
+.addNew .add_img{width: 60px; height: 60px; background: #eee;}
+
+/* 修改书籍信息 */
+.updateInfo{}
+.updateInfo .search{background: #fff;  padding: 15px; overflow: hidden;display: block}
+.updateInfo .search input{border: 1px solid #eee; border-radius: 5px; padding:0px 5px; float: left; height: 2em;line-height: 2em;}
+.updateInfo .search .typeWrap{overflow: hidden; display: block; width: 100%;}
+.updateInfo .search .typeWrap .item{float: left; margin:5px 7px; font-size:.8em}
+.updateInfo .search .typeWrap .item.on{color:#00b4fd; text-decoration: underline;}
+.updateInfo .search button{ float: right; height: 2em; line-height: 2em; padding: 0px 5px; font-size: 1em;}
+
+.bookList{display: flex; display: -webkit-flex; flex-wrap: wrap;}
+.bookList .listItem{overflow: hidden;width: 100%;border-bottom: 1px solid #aaa;padding:5px 0px; text-align: center}
+.bookList .listItem view{float: left; max-height: 3em; min-height: 1em;}
+.bookList .listItem.hd view{font-weight: bolder;}
+.bookList .listItem.bd view{font-size: .9em}
+.bookList .listItem.bd view image{width: 100%;}
+.bookList .listItem view:nth-child(1){width: 15%;}
+.bookList .listItem view:nth-child(2){width: 20%;}
+.bookList .listItem view:nth-child(3){width: 20%;}
+.bookList .listItem view:nth-child(4){width: 15%;}
+.bookList .listItem view:nth-child(5){width: 15%;}
+.bookList .listItem view:nth-child(6){width: 15%;}
+
+.end{width:100%;text-align:center;font-size:.8em;color:#999;margin-bottom:15px;}
+
+
+
+/* 分类 */
+.editType{padding: 10px;}
+.editType .title{margin-bottom: 10px;}
+.typeList{overflow: hidden;}
+.typeList view{background: #00b4fd; color:#fff; padding: 0px 10px; float: left; margin-right: 10px; margin-bottom: 15px; border-radius: 10px;}
+
+/* 弹窗 */
+.formBox{position: fixed; background: rgba(0,0,0,0.7); top: 0px; left:0px; width:100%; height:100%;}
+.formBox .formBox_cont{background: #fff; padding:10px; margin: 40% auto; width:70%; text-align: center; border-radius: 10px; }
+.formBox .title{}
+.formBox input{border:1px solid #aaa; border-radius: 10px;margin: 10px;}

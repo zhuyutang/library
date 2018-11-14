@@ -1,0 +1,29 @@
+<view class="user_info">
+  <image></image>
+  <view class="user_info_right">
+    <view class="name"></view>
+    <view class="realname">姓名：</view>
+    <view class="phone">手机:</view>
+  </view>
+</view>
+
+<view class="menu_list">
+  <view>个人信息</view>
+  <view>借书记录</view>
+  <view>反馈意见</view>
+</view>
+
+<view class="menu_list admin">
+  <view class="menu_list_wrap">
+    <view>添加书籍</view>
+    <view>更新书籍</view>
+    <view>更新分类</view>
+  </view>
+
+
+  <view class="menu_list_wrap">
+    <view>借还记录</view>
+    <view>权限管理</view>
+    <view>意见反馈</view>
+  </view>
+</view>
